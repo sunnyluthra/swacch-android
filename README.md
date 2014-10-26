@@ -1,6 +1,7 @@
 # Swacch Android App
 
 [Swacch.com](http://swacch.com)
+[Download Android App](https://play.google.com/store/apps/details?id=com.mrova.swacch#)
 
 This README outlines the details of collaborating on this application.
 
