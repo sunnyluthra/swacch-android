@@ -1,0 +1,53 @@
+<header class="bar bar-nav">
+	<h1 class="nav-title" id="logo"><img src="images/logo.png" alt="">Upload</h1>
+</header>
+<div class="content">
+	<div class="wrapper"> 
+
+		{{#if isUploading}}
+		{{partial 'loading'}}
+		{{else}}
+		<form class="input-group">
+			<div class="input-row upload-it">
+				<label>
+					<img {{bind-attr src=image}} class="" alt="">
+				</label>
+				{{input value=description placeholder="140 words description (optional)" maxlength="140"}}
+				
+			</div>
+			<div class="input-row upload-btn clearfix">
+				{{#if address}}
+				<div class="address animated fadeInLeft">
+					{{address}}
+				</div>
+
+				{{else}}
+				<div class="text-center text-muted ">
+					{{#if locError}}
+					<div class="animated fadeInUp">
+						Sorry, there was an error in determinig your location. Please turn on the GPS if its not and try again
+						<br/><button class="btn btn-primary btn-try-again" {{action "getPosition"}}>Try Again</button>
+					</div>
+					{{else}}
+					<div class="animated fadeInDown">
+						<i class="fa fa-circle-o-notch fa-spin"></i> Getting hold of your location.
+					</div>					
+					{{/if}}
+					
+				</div>
+				{{/if}}
+			</div>
+		</form>
+			{{#if address}}
+				<div class="padding">
+				{{#if token}}
+				<button class="btn btn-block btn-positive animated fadeInDown" {{action "upload"}}>Upload Report</button>
+				{{else}}
+				<button class="btn btn-facebook text-center btn-block animated fadeInDown" {{action "login"}}>Login With Facebook To Upload</button>
+				<small>We use facebook to verify your email address. We will not post anything on your wall.</small>
+				{{/if}}
+				</div>
+			{{/if}}
+		{{/if}}
+	</div>
+</div>

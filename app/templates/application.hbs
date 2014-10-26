@@ -1,0 +1,17 @@
+<nav class="bar bar-tab">
+  {{#link-to 'index'  class="tab-item"}}
+    <i class="icon fa fa-group"></i>
+    <span class="tab-label">Feed</span>
+  {{/link-to}}
+  <a class="tab-item" {{action 'takePhoto'}}>
+   <i class="icon fa fa-camera"></i>
+  	<span class="tab-label">Upload</span>
+  </a>
+  {{#link-to 'profile'  class="tab-item"}}
+   <i class="icon fa fa-user"></i>
+   <span class="tab-label">Profile</span>
+  {{/link-to}}
+  
+</nav>
+
+{{outlet}}

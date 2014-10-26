@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.mrova.swacch" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <preference name="loglevel" value="DEBUG" />
+    <feature name="FacebookConnectPlugin">
+        <param name="android-package" value="org.apache.cordova.facebook.ConnectPlugin" />
+    </feature>
+    <access origin="https://m.facebook.com" />
+    <access origin="https://graph.facebook.com" />
+    <access origin="https://api.facebook.com" />
+    <access origin="https://*.fbcdn.net" />
+    <access origin="https://*.akamaihd.net" />
+    <feature name="SocialSharing">
+        <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
+    </feature>
+    <feature name="Camera">
+        <param name="android-package" value="com.wezka.nativecamera.NativeCameraLauncher" />
+    </feature>
+    <feature name="File">
+        <param name="android-package" value="org.apache.cordova.file.FileUtils" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="FileTransfer">
+        <param name="android-package" value="org.apache.cordova.filetransfer.FileTransfer" />
+    </feature>
+    <icon density="ldpi" src="platforms/android/res/drawable-ldpi/ic_launcher.png" />
+    <icon density="mdpi" src="platforms/android/res/drawable-mdpi/ic_launcher.png" />
+    <icon density="hdpi" src="platforms/android/res/drawable-hdpi/ic_launcher.png" />
+    <icon density="xhdpi" src="platforms/android/res/drawable-xhdpi/ic_launcher.png" />
+    <name>swacch</name>
+    <preference name="Orientation" value="portrait" />
+    <description>
+        Swacch App is a step towards the Swacch Bharat Mission. It enables you to report pics of garbage, potholes and whatever you think should be fixed.
+    </description>
+    <author email="sunny@mrova.com" href="http://swacch.com">
+        Sunny Luthra
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+</widget>

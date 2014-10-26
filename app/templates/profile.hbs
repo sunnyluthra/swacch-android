@@ -1,0 +1,24 @@
+<header class="bar bar-nav">
+	<h1 class="nav-title" id="logo"><img src="images/logo.png" alt="">Profile</h1>
+</header>
+<div class="content">
+	<div class="wrapper padding"> 
+		{{#if user}}
+		<div class="card">
+		Hello {{user.name}}, thanks for being a part of swacch bharat mission. Please report pics of garbage, potholes or whatever you think should be fixed to help make swacch bharat mission a success.
+			<br>
+			<button class="btn btn-sm" {{action "logout"}}>Logout</button>
+		</div>
+		{{else}}
+		<div class="card">
+			<button class="btn btn-block btn-social btn-facebook" {{action "login"}}><i class="fa fa-facebook"></i> Log In With Facebook</button>
+			<small>We use facebook to verify your email address. We will not post anything on your wall.</small>
+		</div>
+		{{/if}}
+		<div class="card">
+			<small>
+				<b>Swacch App is a step towards the Swacch Bharat Mission. It enables you to report pics of garbage, potholes or whatever you think should be fixed.</b>
+			</small>
+		</div>
+	</div>
+</div>

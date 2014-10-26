@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.mrova.swacch" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>swacch</name>
+    <preference name="Orientation" value="portrait" />
+    <description>
+        Swacch App is a step towards the Swacch Bharat Mission. It enables you to report pics of garbage, potholes and whatever you think should be fixed.
+    </description>
+    <author email="sunny@mrova.com" href="http://swacch.com">
+        Sunny Luthra
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <platform name="android">
+              <icon src="platforms/android/res/drawable-ldpi/ic_launcher.png" density="ldpi" />
+              <icon src="platforms/android/res/drawable-mdpi/ic_launcher.png" density="mdpi" />
+              <icon src="platforms/android/res/drawable-hdpi/ic_launcher.png" density="hdpi" />
+              <icon src="platforms/android/res/drawable-xhdpi/ic_launcher.png" density="xhdpi" />
+     </platform>
+</widget>
