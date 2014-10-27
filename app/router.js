@@ -9,6 +9,7 @@ Router.map(function() {
   this.route('about');
   this.route('profile');
   this.route('upload');
+  this.resource('report', {path: '/report/:report_id'});
 });
 
 export default Router;

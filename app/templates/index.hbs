@@ -9,33 +9,7 @@
 		<ul class="feed">
 			{{#each}}
 			<li>
-				<div class="upload-info clearfix">
-					<div class="uploader">
-						<img {{bind-attr src=author.avatar}} class="round" alt="">
-						<span class="name">{{author.name}}</span> 
-						<div class="pull-right when">
-							<i class="fa fa-clock-o"></i>
-							{{fromnow-date date}}
-						</div>
-					</div>
-				</div>
-				<div class="media">
-					<img {{bind-attr src=image}} alt="">
-				</div>
-				<div class="meta clearfix">
-					<div class="location pull-left">
-						<span class="place">
-							<i class="fa fa-map-marker"></i> 
-							{{address}}
-						</span>
-						{{#if content}}
-						<span class="description"><i class="fa fa-comment-o"></i> {{content}}</span>
-						{{/if}}
-					</div>
-					<div class="pull-right share">
-						{{sny-sharing report_id=id report_image=image report_description=content}}
-					</div>
-				</div>
+				{{partial 'partials/report-single'}}
 			</li>
 			{{else}}
 				{{partial 'loading'}}
