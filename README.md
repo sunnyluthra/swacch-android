@@ -15,7 +15,8 @@ You will need the following things properly installed on your computer.
 * [Git](http://git-scm.com/)
 * [Node.js](http://nodejs.org/) (with NPM) and [Bower](http://bower.io/)
 * [Ripple Emulator](https://chrome.google.com/webstore/detail/ripple-emulator-beta/geelfhphabnejjhdalkjhgipohgpdnoc?hl=en)
-* [Cordova](https://www.npmjs.org/package/cordova)
+* [Cordova](https://www.npmjs.org/package/cordova) Install Globally
+* [Ember-cli](http://www.ember-cli.com/) Install Globally
 
 ## Installation
 

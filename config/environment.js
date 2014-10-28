@@ -47,6 +47,6 @@ module.exports = function(environment) {
   if (environment === 'production') {
 
   }
-
+  ENV.APP.API_HOST = "http://api.swacch.com/api/v1";
   return ENV;
 };
