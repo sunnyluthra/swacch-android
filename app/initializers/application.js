@@ -1,5 +1,5 @@
 export var initialize = function(container, application) {
-  //application.deferReadiness();
+  application.deferReadiness();
   document.addEventListener('deviceready', function(){
   	application.advanceReadiness();
   });
