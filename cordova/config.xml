@@ -2,6 +2,7 @@
 <widget id="com.mrova.swacch" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>swacch</name>
     <preference name="Orientation" value="portrait" />
+    <preference name="DisallowOverscroll" value="true"/>
     <description>
         Swacch App is a step towards the Swacch Bharat Mission. It enables you to report pics of garbage, potholes and whatever you think should be fixed.
     </description>
