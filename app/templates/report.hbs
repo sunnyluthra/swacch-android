@@ -1,13 +1,17 @@
 <header class="bar bar-nav">
 	<h1 class="nav-title" id="logo"><img src="images/logo.png" alt="">Report</h1>
 </header>
-<div class="content">
-	<div class="wrapper"> 
+<div class="content single-report">
+	<div class="wrapper">
+		<div class="padding">
+			<button class="btn btn-block"><i class="fa fa-camera"></i> Present Condition</button>
+			<address>{{address}}</address>
+		</div>
 		<ul class="feed">
 			<li>
 				{{partial 'partials/report-single'}}
 			</li>
-	
+
 		</ul>
 	</div>
 </div>
