@@ -3,13 +3,36 @@
 </header>
 <div class="content single-report">
 	<div class="wrapper">
-		<div class="padding">
-			<button class="btn btn-block"><i class="fa fa-camera"></i> Present Condition</button>
+		<div class="padding addr-wrap">
+			<i class="fa fa-map-marker"></i> 
 			<address>{{address}}</address>
+			<hr/>
+			<div class="posted-by text-center">
+				Reported By: 
+				<span class="name">{{author.name}}</span> 
+			</div>
 		</div>
 		<ul class="feed">
 			<li>
-				{{partial 'partials/report-single'}}
+				<div class="upload-info clearfix">
+					<div class="uploader text-center">
+							Reported <b>{{fromnow-date date}}</b>
+					</div>
+				</div>
+				<div class="media">
+					{{#link-to 'report' this}}<img {{bind-attr src=image}} alt="">{{/link-to}}
+				</div>
+				<div class="meta clearfix">
+					<div class="location">
+						{{#if description}}
+						<span class="description"><i class="fa fa-comment-o"></i> {{description}}</span>
+						{{/if}}
+					</div>
+					<button class="btn btn-block"><i class="fa fa-camera"></i> Present Condition</button>
+					<div class="share">
+						{{sny-sharing big=true report_id=id report_image=image report_description=description}}
+					</div>
+				</div>
 			</li>
 
 		</ul>
