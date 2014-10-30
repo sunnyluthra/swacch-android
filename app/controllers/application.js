@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import config from '../config/environment';
 export
-default Ember.ObjectController.extend({
+default Ember.ArrayController.extend({
 	currentUser: false,
 	image: false,
 	currentUserChanged: function() {
