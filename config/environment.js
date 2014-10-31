@@ -29,7 +29,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.APP.API_HOST = "http://test.api.swacch.com/api/v2";
+    ENV.APP.API_HOST = "http://swacchserver.dev/api/v2";
     // ENV.APP.API_HOST = "http://swacchserver.dev/api/v1";
   }
 

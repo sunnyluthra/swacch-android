@@ -16,23 +16,26 @@
 			<li>
 				<div class="upload-info clearfix">
 					<div class="uploader text-center">
-							Reported <b>{{fromnow-date date}}</b>
+						Reported <b>{{fromnow-date date}}</b>
+						{{delete-report-button user_id=user.id post_author=author.id report=model}}
 					</div>
 				</div>
 				<div class="media">
 					{{#link-to 'report' this}}<img {{bind-attr src=image}} alt="">{{/link-to}}
 				</div>
 				<div class="meta clearfix">
-					<div class="location">
+					<div class="location pull-left">
 						{{#if description}}
 						<span class="description"><i class="fa fa-comment-o"></i> {{description}}</span>
 						{{/if}}
 					</div>
-					<button class="btn btn-block"><i class="fa fa-camera"></i> Present Condition</button>
+					{{present-condition-button}}
 					<div class="share">
 						{{sny-sharing big=true report_id=id report_image=image report_description=description}}
 					</div>
 				</div>
+					
+				
 			</li>
 
 		</ul>
