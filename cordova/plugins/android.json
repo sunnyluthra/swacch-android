@@ -95,6 +95,14 @@
                         {
                             "xml": "<uses-feature android:name=\"android.hardware.camera.autofocus\" android:required=\"false\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />",
+                            "count": 1
                         }
                     ],
                     "/manifest/application": [
@@ -120,6 +128,9 @@
             "PACKAGE_NAME": "com.mrova.swacch"
         },
         "org.apache.cordova.file-transfer": {
+            "PACKAGE_NAME": "com.mrova.swacch"
+        },
+        "org.apache.cordova.geolocation": {
             "PACKAGE_NAME": "com.mrova.swacch"
         }
     },

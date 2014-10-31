@@ -7,7 +7,7 @@ export default DS.Model.extend({
 	}.property('image_full', 'image_medium', 'image_thumbnail', 'image_large'),
 	author: DS.belongsTo("user", {async: true}),
 	date: DS.attr("date"),
-	content: DS.attr("string"),
+	description: DS.attr("string"),
 	address: DS.attr("string"),
 	status: DS.attr("string"),
 	comment_status: DS.attr("string"),

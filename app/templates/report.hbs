@@ -1,0 +1,43 @@
+<header class="bar bar-nav">
+	<h1 class="nav-title" id="logo"><img src="images/logo.png" alt="">Report</h1>
+</header>
+<div class="content single-report">
+	<div class="wrapper">
+		<div class="padding addr-wrap">
+			<i class="fa fa-map-marker"></i> 
+			<address>{{address}}</address>
+			<hr/>
+			<div class="posted-by text-center">
+				Reported By: 
+				<span class="name">{{author.name}}</span> 
+			</div>
+		</div>
+		<ul class="feed">
+			<li>
+				<div class="upload-info clearfix">
+					<div class="uploader text-center">
+						Reported <b>{{fromnow-date date}}</b>
+						{{delete-report-button user_id=user.id post_author=author.id report=model}}
+					</div>
+				</div>
+				<div class="media">
+					{{#link-to 'report' this}}<img {{bind-attr src=image}} alt="">{{/link-to}}
+				</div>
+				<div class="meta clearfix">
+					<div class="location pull-left">
+						{{#if description}}
+						<span class="description"><i class="fa fa-comment-o"></i> {{description}}</span>
+						{{/if}}
+					</div>
+					{{present-condition-button}}
+					<div class="share">
+						{{sny-sharing big=true report_id=id report_image=image report_description=description}}
+					</div>
+				</div>
+					
+				
+			</li>
+
+		</ul>
+	</div>
+</div>

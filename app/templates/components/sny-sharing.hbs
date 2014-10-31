@@ -1,2 +1,9 @@
-<button class="btn m-r-5 btn-facebook" {{action 'fb_share'}}><i class="fa fa-facebook"></i></button>
-<button class="btn btn-twitter" {{action 'tw_share'}}><i class="fa fa-twitter"></i></button>
+<div class="share-btns">
+	{{#if big}}
+	<button class="btn btn-block btn-facebook" {{action 'fb_share'}}><i class="fa fa-facebook"></i> Share on Facebook</button>
+	<button class="btn btn-twitter btn-block" {{action 'tw_share'}}><i class="fa fa-twitter"></i> Share on twitter</button>
+	{{else}}
+	<button class="btn m-r-5 btn-facebook" {{action 'fb_share'}}><i class="fa fa-facebook"></i></button>
+	<button class="btn btn-twitter" {{action 'tw_share'}}><i class="fa fa-twitter"></i></button>
+	{{/if}}
+</div>
