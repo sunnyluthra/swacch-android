@@ -2,7 +2,12 @@ import Ember from 'ember';
 import config from '../config/environment';
 export
 default Ember.ArrayController.extend({
-	currentUser: false,
+	currentUser: function() {
+		if (localStorage.currentUser) {
+			return JSON.parse(localStorage.currentUser);
+		}
+		return false;
+	}.property('localStorage.currentUser'),
 	image: false,
 	currentUserChanged: function() {
 		localStorage.currentUser = JSON.stringify(this.get('currentUser'));
@@ -19,15 +24,11 @@ default Ember.ArrayController.extend({
 					if (data.token) {
 						self.set('currentUser', data);
 					}
-				}).fail(function(xhr, textStatus, errorThrown) {
-					alert(xhr.responseText);
-				});
-			}, function(response) {
-				alert(JSON.stringify(response));
-			});
+				}).fail(function(xhr, textStatus, errorThrown) {});
+			}, function(response) {});
 		},
 		logout: function() {
-			this.set('currentUser', false);
+			localStorage.currentUser = false;
 		},
 		takePhoto: function() {
 			var self = this;
@@ -48,14 +49,14 @@ default Ember.ArrayController.extend({
 			};
 			var onFail = function(message) {};
 			navigator.camera.getPicture(onSuccess, onFail, options);
+		},
+		getAllReports: function() {
+			this.set('reports', false);
+			var store = this.get('store');
+			var reports = store.find('report', {
+				time: jQuery.now()
+			});
+			this.set('reports', reports);
 		}
 	},
-	getAllReports: function() {
-		this.set('reports', false);
-		var store = this.get('store');
-		var reports = store.find('report', {
-			time: jQuery.now()
-		});
-		this.set('reports', reports);
-	}
 });

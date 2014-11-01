@@ -28,6 +28,7 @@
     <icon density="xhdpi" src="platforms/android/res/drawable-xhdpi/ic_launcher.png" />
     <name>swacch</name>
     <preference name="Orientation" value="portrait" />
+    <preference name="DisallowOverscroll" value="true" />
     <description>
         Swacch App is a step towards the Swacch Bharat Mission. It enables you to report pics of garbage, potholes and whatever you think should be fixed.
     </description>
@@ -36,4 +37,7 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <feature name="Notification">
+        <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
+    </feature>
 </widget>

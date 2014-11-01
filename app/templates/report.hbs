@@ -3,6 +3,9 @@
 </header>
 <div class="content single-report">
 	<div class="wrapper">
+	{{#if isLoading}}
+		{{partial 'loading'}}
+		{{else}}
 		<div class="padding addr-wrap">
 			<i class="fa fa-map-marker"></i> 
 			<address>{{address}}</address>
@@ -17,7 +20,9 @@
 				<div class="upload-info clearfix">
 					<div class="uploader text-center">
 						Reported <b>{{fromnow-date date}}</b>
-						{{delete-report-button user_id=user.id post_author=author.id report=model}}
+						{{#if isOwner}}
+							<button {{action 'deleteReport'}} class="btn pull-right btn-delete"><i class="fa fa-trash"></i></button>
+						{{/if}}
 					</div>
 				</div>
 				<div class="media">
@@ -39,5 +44,6 @@
 			</li>
 
 		</ul>
+		{{/if}}
 	</div>
 </div>

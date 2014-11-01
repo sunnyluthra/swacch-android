@@ -47,6 +47,10 @@
                         {
                             "xml": "<feature name=\"FileTransfer\"><param name=\"android-package\" value=\"org.apache.cordova.filetransfer.FileTransfer\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Notification\"><param name=\"android-package\" value=\"org.apache.cordova.dialogs.Notification\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -131,6 +135,9 @@
             "PACKAGE_NAME": "com.mrova.swacch"
         },
         "org.apache.cordova.geolocation": {
+            "PACKAGE_NAME": "com.mrova.swacch"
+        },
+        "org.apache.cordova.dialogs": {
             "PACKAGE_NAME": "com.mrova.swacch"
         }
     },
