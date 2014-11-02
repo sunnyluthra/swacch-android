@@ -34,7 +34,9 @@
 						<span class="description"><i class="fa fa-comment-o"></i> {{description}}</span>
 						{{/if}}
 					</div>
-					{{present-condition-button}}
+					{{#if isOwner}}
+						<button {{action 'takePhoto'}} class="btn btn-block"><i class="fa fa-camera"></i> Present Condition</button>
+					{{/if}}
 					<div class="share">
 						{{sny-sharing big=true report_id=id report_image=image report_description=description}}
 					</div>

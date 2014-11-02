@@ -2,7 +2,7 @@ import Ember from 'ember';
 export
 default Ember.ObjectController.extend({
 	isLoading: false,
-	needs: ['application'],
+	needs: ['application', 'present-condition'],
 	user: Ember.computed.alias("controllers.application.currentUser"),
 	isOwner: function() {
 		return this.get('author.id') == this.get('controllers.application.currentUser.id');
@@ -14,11 +14,35 @@ default Ember.ObjectController.extend({
 			self.get('model').destroyRecord().then(function() {
 				self.setProperties({isLoading: false, loadingMessage:''});
 				self.transitionTo('index');
-			}, function() {
+			}, function(data) {
 				self.setProperties({isLoading: false, loadingMessage:''});
 				self.get('model').rollback();
-				navigation.notification.alert('Some error occurred while deleting the report.', function(){}, 'Error!', 'Ok');
+				var errorMessage = 'Some error occurred while deleting the report.';
+				navigator.notification.alert(JSON.stringify(data), function(){}, 'Error!', 'Ok');
 			});
+		},
+		takePhoto: function() {
+			var self = this;
+			var pictureSource = navigator.camera.PictureSourceType;
+			var destinationType = navigator.camera.DestinationType;
+			var options = {
+				quality: 80,
+				saveToPhotoAlbum: true,
+				destinationType: destinationType.FILE_URI,
+				targetWidth: 1024,
+				targetHeight: 1024,
+				aspectX: 1,
+				aspectY: 1
+			};
+			var onSuccess = function(imageURI) {
+				self.setProperties({
+					'controllers.present-condition.image': imageURI,
+					'controllers.present-condition.parent' : self.get('model.id')
+				});
+				self.transitionTo("present-condition");
+			};
+			var onFail = function(message) {};
+			navigator.camera.getPicture(onSuccess, onFail, options);
 		}
 	}
 });

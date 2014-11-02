@@ -8,6 +8,7 @@ default DS.RESTAdapter.extend({
 		hash = hash || {};
 		hash.headers = hash.headers || {};
 		if (localStorage.currentUser) {
+			alert(localStorage.currentUser);
 			var currentUser = JSON.parse(localStorage.currentUser)
 			hash.headers['X-AUTHENTICATION-TOKEN'] = currentUser.token;
 		}

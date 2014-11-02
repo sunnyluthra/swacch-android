@@ -1,0 +1,26 @@
+<header class="bar bar-nav">
+	<h1 class="nav-title" id="logo"><img src="images/logo.png" alt="">Present Condition</h1>
+</header>
+<div class="content">
+	<div class="wrapper"> 
+
+		{{#if isUploading}}
+		{{partial 'loading'}}
+		{{else}}
+		<form class="input-group">
+			<div class="input-row upload-it">
+				<label>
+					<img {{bind-attr src=image}} class="" alt="">
+				</label>
+				{{input value=description placeholder="140 words description (optional)" maxlength="140"}}
+				
+			</div>
+			
+		</form>
+				<div class="padding">
+				<button class="btn btn-block btn-positive animated fadeInDown" {{action "upload"}}>Upload Report</button>
+				</div>
+			{{/if}}
+		
+	</div>
+</div>

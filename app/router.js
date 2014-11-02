@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('profile');
   this.route('upload');
   this.resource('report', {path: '/report/:report_id'});
+  this.route('present-condition');
 });
 
 export default Router;

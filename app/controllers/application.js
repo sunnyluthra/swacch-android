@@ -29,6 +29,7 @@ default Ember.ArrayController.extend({
 		},
 		logout: function() {
 			localStorage.currentUser = false;
+			self.set('currentUser', false);
 		},
 		takePhoto: function() {
 			var self = this;
