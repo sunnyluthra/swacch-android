@@ -51,13 +51,15 @@ default Ember.ArrayController.extend({
 			var onFail = function(message) {};
 			navigator.camera.getPicture(onSuccess, onFail, options);
 		},
-		getAllReports: function() {
-			this.set('reports', false);
-			var store = this.get('store');
-			var reports = store.find('report', {
-				time: jQuery.now()
-			});
-			this.set('reports', reports);
+		getAllReports: function(refresh) {
+			var _model = this.get('model');
+			if (!_model.isFulfilled || refresh) {
+				var store = this.get('store');
+				var reports = store.find('report', {
+					time: jQuery.now()
+				});
+				this.set('model', reports);
+			}
 		}
 	},
 });
