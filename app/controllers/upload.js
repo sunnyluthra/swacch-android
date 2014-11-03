@@ -45,14 +45,18 @@ export default Ember.ArrayController.extend({
 				google_address: JSON.stringify( this.get('googleAddress') ),
 				description: this.get('description'),
 				latitude: this.get('latitude'),
-				longitude: this.get('longitude'),
-				token: this.get('token')
+				longitude: this.get('longitude')
 			};
-
+			var headers = {'X-AUTHENTICATION-TOKEN': this.get('token')};
+			options.headers = headers;
 			var onSuccess = function(data){
 				if(data.responseCode === 201){
 					//sucess
-					self.transitionTo('index');
+					var store = self.get('store');
+					var _res = JSON.parse(data.response);
+					store.push('user', _res.users[0]);
+					store.push('report', _res.reports[0]);
+					self.transitionToRoute('index');
 				}else{
 					self.setProperties({
 						isUploading: false,
@@ -65,7 +69,9 @@ export default Ember.ArrayController.extend({
 						isUploading: false,
 						loadingMessage: ''
 				});
-				alert(error.body.description);
+				var errorMessage = 'Some error occurred while uploading the report.';
+				navigator.notification.alert( errorMessage, null, 'Error!', 'Ok');
+				
 			};
 
 			var ft = new FileTransfer();

@@ -26,18 +26,21 @@ export default Ember.ArrayController.extend({
 			};
 			var headers = {'X-AUTHENTICATION-TOKEN': this.get('token')};
 			options.headers = headers;
-			alert(JSON.stringify(options));
 			var onSuccess = function(data){
 				if(data.responseCode === 201){
 					//sucess
-					self.transitionTo('index');
+					var store = self.get('store');
+					var _res = JSON.parse(data.response);
+					store.push('user', _res.users[0]);
+					store.push('report', _res.reports[0]);
+					self.transitionToRoute('index');
 				}else{
 					self.setProperties({
 						isUploading: false,
 						loadingMessage: ''
 					});
 				}
-			};
+			}.bind(self);
 			var onErr = function(error){
 					self.setProperties({
 						isUploading: false,
@@ -49,6 +52,7 @@ export default Ember.ArrayController.extend({
 			};
 
 			var ft = new FileTransfer();
+			ft._self = self;
 	        ft.upload(image, encodeURI(config.APP.API_HOST + '/reports'), onSuccess, onErr, options);
 		},
 		

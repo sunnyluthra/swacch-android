@@ -1,9 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-	setupController: function(controller, model){
-		// if(!controller.get('reports')){
-			controller.send("getAllReports");
-		// }
+	model: function(){
+		var data = this.store.all('report');
+		if(!data.get("length")){
+			data = this.store.find('report');
+		}
+		
+		return data;
 	}
 });
