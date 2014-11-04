@@ -24,16 +24,16 @@ default Ember.ArrayController.extend({
 					if (data.token) {
 						self.set('currentUser', data);
 					}
-				}).fail(function(xhr, textStatus, errorThrown) {});
-			}, function(response) {});
+				}).fail(function(/*xhr, textStatus, errorThrown*/) {});
+			}, function(/*response*/) {});
 		},
 		logout: function() {
 			localStorage.currentUser = false;
-			self.set('currentUser', false);
+			this.set('currentUser', false);
 		},
 		takePhoto: function() {
 			var self = this;
-			var pictureSource = navigator.camera.PictureSourceType;
+			// var pictureSource = navigator.camera.PictureSourceType;
 			var destinationType = navigator.camera.DestinationType;
 			var options = {
 				quality: 80,
@@ -48,7 +48,7 @@ default Ember.ArrayController.extend({
 				self.set('image', imageURI);
 				self.transitionToRoute("upload");
 			};
-			var onFail = function(message) {};
+			var onFail = function() {};
 			navigator.camera.getPicture(onSuccess, onFail, options);
 		},
 		getAllReports: function(refresh) {

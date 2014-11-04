@@ -15,7 +15,6 @@ export default Ember.ArrayController.extend({
 			//upload options
 			var options = new FileUploadOptions();
 			var image = this.get('image');
-			var options = {};
 			options.filekey = "picture";
 			options.fileName = image.substr( image.lastIndexOf('/') + 1 );
 			options.mimeType = "image/jpeg";
@@ -41,7 +40,7 @@ export default Ember.ArrayController.extend({
 					});
 				}
 			}.bind(self);
-			var onErr = function(error){
+			var onErr = function(/* error */){
 					self.setProperties({
 						isUploading: false,
 						loadingMessage: ''

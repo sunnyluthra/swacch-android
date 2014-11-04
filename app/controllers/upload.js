@@ -24,7 +24,7 @@ export default Ember.ArrayController.extend({
 					self.set('address', gAddress.formatted_address);
 				});
 			};
-			var onErr = function(error) {
+			var onErr = function() {
 				self.set("locError", true);
 			};
 			var geoOptions = {timeout: 20000, enableHighAccuracy: true, maximumAge: 5000};
@@ -64,7 +64,7 @@ export default Ember.ArrayController.extend({
 					});
 				}
 			};
-			var onErr = function(error){
+			var onErr = function(){
 					self.setProperties({
 						isUploading: false,
 						loadingMessage: ''

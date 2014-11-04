@@ -253,7 +253,7 @@ a:active {
 }
 
 .content {
-  // position: absolute;
+  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
@@ -263,9 +263,9 @@ a:active {
 }
 
 .content > * {
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0);
+  // -webkit-transform: translateZ(0);
+  // -ms-transform: translateZ(0);
+  // transform: translateZ(0);
 }
 
 .bar-nav ~ .content {
@@ -2494,8 +2494,8 @@ Copyright (c) 2014 Daniel Eden
 */
 
 .animated {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
+  -webkit-animation-duration: .3s;
+  animation-duration: .3s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
@@ -3509,4 +3509,7 @@ body{
 
    }
  }
+}
+.liquid-container{
+  margin-bottom: 50px;
 }

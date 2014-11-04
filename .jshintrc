@@ -2,7 +2,14 @@
   "predef": {
     "document": true,
     "window": true,
-    "-Promise": true
+    "-Promise": true,
+    "FastClick" : true,
+    "$" : true,
+    "jQuery" : true,
+    "FileUploadOptions" : true,
+    "facebookConnectPlugin" : true,
+    "FileTransfer" : true,
+    "moment" : true
   },
   "browser" : true,
   "boss" : true,

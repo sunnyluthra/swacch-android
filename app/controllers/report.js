@@ -10,20 +10,33 @@ default Ember.ObjectController.extend({
 	actions: {
 		deleteReport: function() {
 			var self = this;
-			self.setProperties({isLoading: true, loadingMessage:'Deleting'});
-			self.get('model').destroyRecord().then(function() {
-				self.setProperties({isLoading: false, loadingMessage:''});
-				self.transitionToRoute('index');
-			}, function(data) {
-				self.setProperties({isLoading: false, loadingMessage:''});
-				self.get('model').rollback();
-				var errorMessage = 'Some error occurred while deleting the report.';
-				navigator.notification.alert(errorMessage, function(){}, 'Error!', 'Ok');
-			});
+			navigator.notification.confirm("Once you delete this report, it connot be done.", function(buttonIndex) {
+				if (buttonIndex === 2) {
+					self.setProperties({
+						isLoading: true,
+						loadingMessage: 'Deleting'
+					});
+					self.get('model').destroyRecord().then(function() {
+						self.setProperties({
+							isLoading: false,
+							loadingMessage: ''
+						});
+						self.transitionToRoute('index');
+					}, function() {
+						self.setProperties({
+							isLoading: false,
+							loadingMessage: ''
+						});
+						self.get('model').rollback();
+						var errorMessage = 'Some error occurred while deleting the report.';
+						navigator.notification.alert(errorMessage, function() {}, 'Error!', 'Ok');
+					});
+				}
+			}, "Delete this report?", "Cancel, Delete Report");
 		},
 		takePhoto: function() {
 			var self = this;
-			var pictureSource = navigator.camera.PictureSourceType;
+			// var pictureSource = navigator.camera.PictureSourceType;
 			var destinationType = navigator.camera.DestinationType;
 			var options = {
 				quality: 80,
@@ -37,11 +50,11 @@ default Ember.ObjectController.extend({
 			var onSuccess = function(imageURI) {
 				self.setProperties({
 					'controllers.present-condition.image': imageURI,
-					'controllers.present-condition.parent' : self.get('model.id')
+					'controllers.present-condition.parent': self.get('model.id')
 				});
 				self.transitionToRoute("present-condition");
 			};
-			var onFail = function(message) {};
+			var onFail = function() {};
 			navigator.camera.getPicture(onSuccess, onFail, options);
 		}
 	}

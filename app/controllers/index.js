@@ -8,10 +8,14 @@ default Ember.ArrayController.extend({
 	noMorePosts: false,
 	actions: {
 		getAllReports: function() {
-			var _model = this.get('model');
 			var store = this.get('store');
+			store.unloadAll('report');
 			var reports = store.find('report');
-			this.set('model', reports);
+			this.setProperties({
+				'noMorePosts' : false,
+				'model' : reports
+			});
+
 		},
 		loadMore: function(){
 			var self = this;
@@ -25,10 +29,10 @@ default Ember.ArrayController.extend({
 					self.set('loadMoreLoading', false);
 				}, function(error){
 					self.set('loadMoreLoading', false);
-					if(error.status == 404){
+					if(error.status === 404){
 						self.set('noMorePosts', true);
 					}else{
-						navigator.notification.alert( errorMessage, null, 'Error!', 'Ok');
+						navigator.notification.alert( "Some Error Occurred.", null, 'Error!', 'Ok');
 					}
 				});
 			}

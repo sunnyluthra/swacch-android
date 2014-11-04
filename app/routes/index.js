@@ -1,5 +1,5 @@
 import Ember from 'ember';
-
+// import resetScroll from '../mixins/reset-scroll';
 export default Ember.Route.extend({
 	model: function(){
 		var data = this.store.all('report');
