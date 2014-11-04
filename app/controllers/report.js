@@ -10,7 +10,7 @@ default Ember.ObjectController.extend({
 	actions: {
 		deleteReport: function() {
 			var self = this;
-			navigator.notification.confirm("Once you delete this report, it connot be done.", function(buttonIndex) {
+			navigator.notification.confirm("Once you delete this report, it cannot be undone.", function(buttonIndex) {
 				if (buttonIndex === 2) {
 					self.setProperties({
 						isLoading: true,
