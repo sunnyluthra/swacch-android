@@ -47,7 +47,7 @@ export default Ember.ArrayController.extend({
 						loadingMessage: ''
 				});
 				var errorMessage = 'Some error occurred while uploading the report.';
-				navigator.notification.alert( JSON.stringify(error), null, 'Error!', 'Ok');
+				navigator.notification.alert( errorMessage, null, 'Error!', 'Ok');
 				
 			};
 

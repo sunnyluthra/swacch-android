@@ -235,11 +235,6 @@ th {
 }
 
 body {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
   font-family: "Helvetica Neue", Helvetica, sans-serif;
   font-size: 17px;
   line-height: 21px;
@@ -258,14 +253,13 @@ a:active {
 }
 
 .content {
-  position: absolute;
+  // position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
-  background-color: #fff;
 }
 
 .content > * {
@@ -816,7 +810,9 @@ select {
   content: '\e826';
 }
 
-
+.pagger{
+  height: 80px;
+}
 /*!
  *  Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
@@ -3311,7 +3307,7 @@ body{
   text-rendering: optimizeLegibility;
   
 }
-.content{
+body{
   background: #f1f1f1;
 }
 .bar-nav{

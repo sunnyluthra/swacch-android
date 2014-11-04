@@ -13,12 +13,12 @@ default Ember.ObjectController.extend({
 			self.setProperties({isLoading: true, loadingMessage:'Deleting'});
 			self.get('model').destroyRecord().then(function() {
 				self.setProperties({isLoading: false, loadingMessage:''});
-				self.transitionTo('index');
+				self.transitionToRoute('index');
 			}, function(data) {
 				self.setProperties({isLoading: false, loadingMessage:''});
 				self.get('model').rollback();
 				var errorMessage = 'Some error occurred while deleting the report.';
-				navigator.notification.alert(JSON.stringify(data), function(){}, 'Error!', 'Ok');
+				navigator.notification.alert(errorMessage, function(){}, 'Error!', 'Ok');
 			});
 		},
 		takePhoto: function() {
@@ -39,7 +39,7 @@ default Ember.ObjectController.extend({
 					'controllers.present-condition.image': imageURI,
 					'controllers.present-condition.parent' : self.get('model.id')
 				});
-				self.transitionTo("present-condition");
+				self.transitionToRoute("present-condition");
 			};
 			var onFail = function(message) {};
 			navigator.camera.getPicture(onSuccess, onFail, options);

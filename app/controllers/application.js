@@ -46,7 +46,7 @@ default Ember.ArrayController.extend({
 			};
 			var onSuccess = function(imageURI) {
 				self.set('image', imageURI);
-				self.transitionTo("upload");
+				self.transitionToRoute("upload");
 			};
 			var onFail = function(message) {};
 			navigator.camera.getPicture(onSuccess, onFail, options);

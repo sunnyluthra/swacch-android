@@ -16,5 +16,21 @@
 			{{/each}}
 
 		</ul>
+		<div class="padding text-center pagger">
+		{{#if model}}
+			{{#if loadMoreLoading}}
+				{{partial 'loading'}}
+			{{else}}
+				{{#if noMorePosts}}
+					<small class="text-muted">
+						No more reports.
+					</small>
+				{{else}}
+					<button class="btn btn-block" {{action 'loadMore'}}>Load More</button>
+				{{/if}}
+			
+			{{/if}}
+		{{/if}}
+		</div>
 	</div>
 </div>
